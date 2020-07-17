@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Selam</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    function tikla(){
+        console.log('selamun aleyküm');
+        $( function() {
+            $( "#dialog" ).dialog();
+        } );
+    }
+    function tikla2(){
+        console.log('selamun aleyküm');
+        $( function() {
+            $( "#dialog2" ).dialog();
+        } );
+    }
+    function tikla3(){
+        console.log('selamun aleyküm');
+        $( function() {
+            $( "#dialog3" ).dialog();
+        } );
+    }
+    function tikla4(){
+        console.log('selamun aleyküm');
+        $( function() {
+            $( "#dialog4" ).dialog();
+        } );
+    }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <table>
+            <tr>
+                <td><img th:src="@{images/m.png}" class="card-img-top" alt="..."></td>
+            </tr>
+        </table>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Ana Sayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Giriş Yap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Çıkış Yap</a>
+                </li>
+                <li class="nav-item">
+
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <table>
+                    <tr>
+                        <td><input size="25" class="form-control mr-sm-2" type="search" placeholder="Arama"
+                                   aria-label="Arama"></td>
+                        <td>
+                            <button class="btn btn-primary" type="submit">Arama Yap</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <table>
+                <tr>
+                    <td>
+                        <button onclick="tikla2()" type="button" class="btn btn-primary">
+                            Arkadaşlık İstekleri <span class="badge badge-light">9</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="tikla()" type="button" class="btn btn-primary">
+                            Mesajlar <span class="badge badge-light">5</span>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="tikla3()" type="button" class="btn btn-primary">
+                            Beğeni <span class="badge badge-light">7</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <!--<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{images/x.jpg}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{images/b.jpg}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{images/c.jpg}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="jumbotron">
+        <h1 class="display-4">
+            Hoş Geldiniz Sayın
+            <span th:if="${user!=null}">@</span>
+            <span th:if="${user!=null}" th:text="${user}"></span>
+            <span th:if="${user==null}" th:text="Misafir"></span>
+        </h1>
+        <p class="lead">Bu bir Spring Boot + Spring Web MVC + Spring Security + Thymeleaf + Bootstrap ile yapılmış bir
+            test demo projesidir!</p>
+        <hr class="my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                <li class="breadcrumb-item"><a href="#">Kütüphane</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Veri</li>
+            </ol>
+        </nav>
+        <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" name="file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Dosyayı Yükle</button>
+        </form>
+        <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+        <img th:src="@{/opt/images/ff.jpg}" />
+    </div>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{images/a.jpg}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#">Mitsubishi Evo X</a></h5>
+                            <p class="card-text">Modifiyeli Mitsubishi Evo X 1000 HP gücünde.</p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                                data-placement="top" title="Detaylar">Detaylar
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary">Ayrıntılar</a>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary">
+                                            Beğeni <span class="badge badge-light">4</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </center>
+    <div class="alert alert-success" role="alert" th:each="user : ${users}">
+        <h6>Çevrim içi üyeler: <span th:text="${user}"></span> </h6>
+    </div>
+</div>
+<div id="dialog" title="Mesaj kutusu">
+    <p>Burada mesajlarınız görüntülenir.</p>
+</div>
+<div id="dialog2" title="Arkadaşlık istekleri">
+    <p>Burada arkadaşlık istekleri görüntülenir.</p>
+</div>
+<div id="dialog3" title="Bildirimler">
+    <p>Burada bildirimleriniz görüntülenir.</p>
+</div>
+</body>
+</html>
